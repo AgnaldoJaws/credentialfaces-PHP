@@ -1,0 +1,23 @@
+{
+    "name": "mark/mvc",
+    "require": {
+        "php": ">=5.4",
+       "dino/dompdf-module": "*",
+        "swiftmailer/swiftmailer": "^5.4"
+    },
+    "minimum-stability": "alpha",
+    "authors": [
+        {
+            "name": "Mark Gerad Martins",
+            "email": "mark@gerald.eti.br"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+          "App\\": "src/App"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}

@@ -1,0 +1,149 @@
+<h3>Evento</h3>
+<?php
+if (isset($_GET['saveok'])){
+    if($_GET['saveok'] == 1){
+        ?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Sucesso!</strong> Evento Inserido com sucesso!.
+        </div>
+<?php }} ?>
+
+<a href="/evento/novo" class="btn-large btn pull-right btn-primary"
+ id="adicionar" data-toggle="modal" data-target="#adicionarModal">Evento</a>
+ 
+ 
+ 
+ 
+ 
+ <br><br><br><br>
+ 
+ 
+ 
+
+<!-- Adicionar Modal -->
+<div class="modal fade" id="adicionarModal2" tabindex="-1" role="dialog" aria-labelledby="adicionarModalLabel2">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="adicionarModalLabel2">Adicionar Descrição</h4>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Adicionar Modal -->
+<div class="modal fade" id="adicionarModal" tabindex="-1" role="dialog" aria-labelledby="adicionarModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="adicionarModalLabel">Adicionar Descrição</h4>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+    <table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Curso</th>
+        <th>Nome Evento</th>
+        <th>Convidado</th>
+        <th>Assunto</th>
+        <th>Local</th>
+        <th>Data</th>
+        <th>Horário de Início</th>
+        <th>Horário de Término</th>
+        <th>Carga Horária</th>
+        <th>Valor</th>
+        <th width="10%" align="center">Ação</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->view->objetos as $registro): ?>
+        <tr>
+            <td align="left"><?= $registro['curso']; ?></td>
+            <td align="left"><?= $registro['nome_evento']; ?></td>
+             <td align="left"><?= $registro['palestrante']; ?></td>
+            <td align="left"><?= $registro['assunto']; ?></td>
+             <td align="left"><?= $registro['local']; ?></td>
+            <td align="left"><?= $registro['data']; ?></td>
+             <td align="left"><?= $registro['horario_inicio']; ?></td>
+            <td align="left"><?= $registro['horario_termino']; ?></td>
+             <td align="left"><?= $registro['carga_horaria']; ?></td>
+            <td align="left"><?= $registro['valor']; ?></td>
+            
+            <td>
+                <a href="/artigo/edit?id=<?=$registro['id'];?>" data-toggle="modal" data-target="#editarModal-<?=$registro['id'];?>">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </a>
+                &nbsp;
+                <a href="#" data-toggle="modal" data-target="#excluirModal-<?=$registro['id'];?>">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </a>
+            </td>
+        </tr>
+
+
+        <!-- Excluir Modal -->
+        <div class="modal fade" id="excluirModal-<?=$registro['id'];?>" tabindex="-1" role="dialog" aria-labelledby="excluirModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="excluirModalLabel">Confirmação de Exclusão</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h2>tem certeza que deseja excluir o artigo "<?= $registro['titulo']; ?>"?</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                        <a href="/artigo/delete?id=<?=$registro['id'];?>" class="btn btn-danger">Excluir</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Editar Modal -->
+        <div class="modal fade" id="editarModal-<?=$registro['id'];?>" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="editarModalLabel">Editar Artigo</h4>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    <?php endforeach; ?>
+    </tbody>
+</table>
+
+<!-- Adicionar Modal -->
+<div class="modal fade" id="adicionarModal" tabindex="-1" role="dialog" aria-labelledby="adicionarModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="adicionarModalLabel">Adicionar Artigo</h4>
+            </div>
+
+        </div>
+    </div>
+</div>
+            
+     
+ 
+         
+                 
+<!-- Search box End -->
+	

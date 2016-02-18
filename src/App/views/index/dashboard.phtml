@@ -1,0 +1,37 @@
+Seja Bem vindo! <?php echo $_SESSION['nome'] ?>
+
+
+			
+			<form action="/alunoEvento/novo" method="post" id="formNovoArtigos"	>
+			
+<input type="hidden" name="id" value=" <?php echo $_SESSION['id'] ?>">
+
+<select class="form-control" name= "cod_desc" id="cod_desc">
+  <option value="0" selected="selected"> Evento</option>
+   <?php foreach ($this->view->objetos as $registro): ?>         
+              
+         
+            <?php  $assunto = $registro["curso"];?>
+           <?php  $cod = $registro["cod_evento"];?>
+        
+      <option value= "<?php echo $cod ?>" >  --<?php echo  $assunto ?> </option>
+        <?php endforeach;?>
+        
+   
+        
+    </select>   
+    
+    <button type="submit" class="btn btn-principal">Confirmar</button>
+    
+    </form>
+    
+    
+    
+    <a href="/listaEvento?id=<?php echo $_SESSION['id'] ?>" >
+                    Certificado
+                </a>
+                
+    
+
+       
+    

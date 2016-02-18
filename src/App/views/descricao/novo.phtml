@@ -1,0 +1,67 @@
+<?php
+if (isset ( $this->view->sucesso )) {
+	if ($this->view->sucesso == true) {
+		header ( "Location:/eventos?saveok=1" );
+		exit ();
+	}
+}
+?>
+
+<!-- Modal -->
+
+
+<div class="modal-content">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<h4 class="modal-title" id="adicionarModalLabel">Adicionar Descrição</h4>
+	</div>
+	<div class="modal-body">
+
+		<form action="/descricao/novo" method="post" id="formNovoArtigos"
+			class="form-horizontal" role="form"
+			data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+			data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+			data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+			
+
+					<div class="form-group">
+					<label class="col-sm-2 control-label">Evento<span class="asterisco">*</span></label>
+					<div class="col-sm-9">
+					
+					<select class="form-control" name= "cod_evento"id="cod_evento">
+  <option value="0" selected="selected"> Evento</option>
+   <?php foreach ($this->view->objetos as $registro): ?>         
+              
+           <?php  $category = $registro["nome_evento"];?>
+           <?php  $cod = $registro["cod_evento"];?>
+        
+      <option value= "<?php echo $cod ?>" > <?php echo  $category ?> </option>
+        <?php endforeach;?>
+        
+   
+        
+    </select>
+    
+    </div>
+    </div>
+    
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Palestrante</label>
+						<div class="col-sm-5">
+							<input type="text" name="assunto" class="form-control"
+								placeholder="palestrante" data-bv-notempty="true"
+								data-bv-notempty-message="Por favor informe o celular!" />
+						</div>
+	</div>
+						<button type="submit" class="btn btn-principal">Confirmar</button>
+		
+		</form>
+		<p></p>
+
+	</div>
+	
+	
+	
