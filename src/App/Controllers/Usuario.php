@@ -63,15 +63,15 @@ class Usuario extends Action
             $email= $this->view->usuario['email'];
             $senha= $this->view->usuario['senha'];
 			$decoe = base64_decode($senha);
-            $dados = [
+            $dados = 'agnaldobernardojunior@yahoo.com.br'; /*[
                 'nome' => $this->view->usuario['nome_aluno'],
                 'email'=> $this->view->usuario['email']
-            ];
+            ];*/
 
             $assunto = "Confirmação de Cadastro";
             $destinatario = $email;
 
-            $servidor = &$_SERVER["SERVER_NAME"];
+            $servidor = '188.166.97.236:8080';
 
             $mensagemHtml = "
                 Olá $nome,</br>

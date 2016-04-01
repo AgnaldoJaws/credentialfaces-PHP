@@ -19,11 +19,11 @@ class SendMail
 
         $mailer = \Swift_Mailer::newInstance($transport);
 
-       $transport->setHost('smtp.live.com')
-            ->setPort(587)//Configurar Porta
-            ->setEncryption('tls')
-            ->setUsername('agnaldobernardojunior@hotmail.com')
-            ->setPassword('ZXCVBNMMNBVCXZ');
+       $transport->setHost('smtp.mail.yahoo.com')
+            ->setPort(465)//Configurar Porta
+           ->setEncryption('ssl')
+            ->setUsername('agnaldobernardojunior@yahoo.com.br')
+            ->setPassword('ab123456');
            
           /* $transport = \Swift_SmtpTransport::newInstance('smtp.live.com', 587, tls)
             ->setUsername('agnaldobernardojunior@hotmail.com')
@@ -45,15 +45,15 @@ class SendMail
      * @param $destinatario
      * @param $mensagemHtml
      * @param array $dados
+
      * @return mixed
      */
-    public function enviaHtml($message, $mailer, $assunto, $destinatario, $mensagemHtml, array $dados)
+    public function enviaHtml($message, $mailer, $assunto, $destinatario, $mensagemHtml, $dados)
     {
         $message->setSubject($assunto)
             ->setFrom(
-                array(
-                    $dados['email'] => $dados['nome']
-                )
+                                   $dados
+                
             )
             ->setTo(
                 array(
