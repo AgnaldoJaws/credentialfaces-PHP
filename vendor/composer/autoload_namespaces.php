@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'DOMPDFModule' => array($vendorDir . '/dino/dompdf-module/src'),
+    'WideImage' => array($vendorDir . '/smottt/wideimage/lib'),
 );

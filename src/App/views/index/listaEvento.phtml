@@ -1,50 +1,42 @@
-<h2>Eventos</h2>
-    
+<style type="text/css">
+    .ab {
+        
+    }
+    @media screen and (min-width: 1px) and (max-width: 600px) {
+    #teste {
+        width: 400px; 
+        margin-top: -292px;
+        height: 292px;
+        margin-left: -2px;
+         background-color: #410f70;
+    }
+       
+}
+</style>
+<div id="teste">    
+
+</div>
+<div class="ab">
+    <div class=" col-md-9">
+            <h3>Certificados</h3>
    <table class="table table-bordered table-hover">
     <thead>
     <tr>
-       <th>Curso</th>
-        <th>Nome Evento</th>
-        <th>Convidado</th>
-        <th>Assunto</th>
-        <th>Local</th>
-        <th>Data</th>
-        <th>Horário de Início</th>
-        <th>Horário de Término</th>
-        <th>Carga Horária</th>
-        <th>Valor</th>
-        <th width="10%" align="center">Ação</th>
-
-    </tr>
+       
+        <th>Evento</th>
+         <th>Combo</th>
+        <th>Download</th>       
+     </tr>
     </thead>
     <tbody>
     <?php foreach ($this->view->objetos as $registro): ?>
         <tr>
-             <td align="left"><?= $registro['curso']; ?></td>
-            <td align="left"><?= $registro['nome_evento']; ?></td>
-             <td align="left"><?= $registro['palestrante']; ?></td>
-            <td align="left"><?= $registro['assunto']; ?></td>
-             <td align="left"><?= $registro['local']; ?></td>
-            <td align="left"><?= $registro['data']; ?></td>
-             <td align="left"><?= $registro['horario_inicio']; ?></td>
-            <td align="left"><?= $registro['horario_termino']; ?></td>
-             <td align="left"><?= $registro['carga_horaria']; ?></td>
-            <td align="left"><?= $registro['valor']; ?></td>
-                        
             
-            <td>
-                <a href="/artigo/edit?id=<?=$registro['id'];?>" data-toggle="modal" data-target="#editarModal-<?=$registro['id'];?>">
-                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                </a>
-                &nbsp;
-                <a href="#" data-toggle="modal" data-target="#excluirModal-<?=$registro['id'];?>">
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                </a>
-                &nbsp;
-                <a href="/pdf?cod_aln_evt=<?=$registro['cod_aln_evt'];?>" >
-                    Certificado
-                </a>
-            </td>
+             <td align="left"><?= $registro['nome_evento']; ?></td>
+             <td align="left"><?= $registro['nome_evento']; ?></td>
+        <td align="left"> <a href="/pdf?cod_aln_evt=<?=$registro['cod_aln_evt'];?>" >                  Certificado
+                </a></td>
+            
         </tr>
 
 
@@ -68,19 +60,9 @@
             </div>
         </div>
 
-        <!-- Editar Modal -->
-        <div class="modal fade" id="editarModal-<?=$registro['id'];?>" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="editarModalLabel">Editar Artigo</h4>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+        
 
     <?php endforeach; ?>
     </tbody>
 </table>
+</div>

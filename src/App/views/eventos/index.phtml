@@ -1,26 +1,52 @@
-<h3>Evento</h3>
-<?php
-if (isset($_GET['saveok'])){
-    if($_GET['saveok'] == 1){
-        ?>
-        <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>Sucesso!</strong> Evento Inserido com sucesso!.
-        </div>
-<?php }} ?>
+<style type="text/css">
+.btn-principal {
+    background-color: #410f70;
+    color: #ffffff;
+    margin-top: -30px;
+    
+}
 
-<a href="/evento/novo" class="btn-large btn pull-right btn-primary"
- id="adicionar" data-toggle="modal" data-target="#adicionarModal">Evento</a>
- 
- 
- 
- 
- 
- <br><br><br><br>
- 
- 
- 
 
+    #eventContent {
+      
+    
+        
+    }
+    @media screen and (min-width: 1px) and (max-width: 755px) { 
+
+#eventContent {
+       width: 100%;        
+       height: 292px;
+       border: solid white 1px;
+       margin-top: 2px;       
+    }
+
+    #eventContent h3 {
+        text-align: center;
+    }
+            #teste {
+        width: 900px; 
+        margin-top: -292px;
+        height: 292px;
+        margin-left: -2px;
+         background-color: #410f70;
+    }
+    }
+</style>           
+
+
+<div id="teste">    
+
+</div>
+
+<div class="content col-md-9" id="eventContent">
+    <h3>Eventos</h3> <br>
+    <a href="/evento/novo" class="btn-principal btn-large btn pull-right btn-primary"
+ data-toggle="modal" data-target="#adicionarModal">Novo</a> 
+ <br>
+
+ 
+ 
 <!-- Adicionar Modal -->
 <div class="modal fade" id="adicionarModal2" tabindex="-1" role="dialog" aria-labelledby="adicionarModalLabel2">
     <div class="modal-dialog" role="document">
@@ -146,4 +172,9 @@ if (isset($_GET['saveok'])){
          
                  
 <!-- Search box End -->
-	
+    
+    </div>
+</div>
+</div>
+
+

@@ -28,7 +28,7 @@ class AlunoEvento extends Table {
         );
        
         $stmt->bindParam(":id", $data['id']);
-        $stmt->bindParam(":cod_evento", $data['cod_desc']);
+        $stmt->bindParam(":cod_evento", $data['cod_evento']);
         /*$stmt->bindParam(":ativo", $data['ativo']);
         $dt = new \DateTime();
         $agora =$dt->format('Y-m-d H:i:s');

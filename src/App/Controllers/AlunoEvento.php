@@ -28,6 +28,7 @@ class alunoEvento extends Action
         }
 
         if(count($_POST)) {
+            
         	$model = Container::getClass($this->model);
             $model->saveAlunoEvento($_POST);            
             $this->view->sucesso = true; 

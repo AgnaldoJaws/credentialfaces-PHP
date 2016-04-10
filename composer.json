@@ -1,15 +1,17 @@
 {
-    "name": "mark/mvc",
+    "name": "credentialFaces",
     "require": {
         "php": ">=5.4",
-       "dino/dompdf-module": "*",
-        "swiftmailer/swiftmailer": "^5.4"
+       
+        "swiftmailer/swiftmailer": "^5.4",
+         "mpdf/mpdf": "*",
+          "smottt/wideimage": "*"
     },
     "minimum-stability": "alpha",
     "authors": [
         {
-            "name": "Mark Gerad Martins",
-            "email": "mark@gerald.eti.br"
+            "name": "agnaldo",
+            "email": "agnaldobernardojunior@yahoo.com.br"
         }
     ],
     "autoload": {

@@ -28,6 +28,6 @@ class Admin extends Action
 				header("Location:/"); exit;
 			}
 		
-			$this->render("index");
+			$this->render("dashboard");
 		}
 }

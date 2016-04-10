@@ -1,65 +1,13 @@
-body {
-  padding-top: 50px;
-}
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
-}
-
-.logo {
-    margin: 0 auto;
-}
-
-h1 {
-    /*color: #ffffff;*/
-    text-align: center;
-    font-size: 26px;
-}
-
-h5 {
-    font-size: 16px;
-    color: #77AF20;
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-.link-secundario {
-    color: #808285;
-}
-
-.link-secundario:hover {
-    color:#58595B;
-}
-
-.link-padrao {
-    color:#3E618E;
-}
-
-.link-padrao:hover {
-    color:#25385B;
-}
-
-.link-p {
-    font-size: 12px;
-    float: right;
-}
-
-p {
-    text-align: left;
-}
 
 .btn-principal {
-    background-color: #3E618E;
+    background-color: #410f70;
     color: #ffffff;
     float: right;
     margin-right: 28px;
     margin-left: 10px;
 }
 
-.btn-principal:hover {
-    background-color: #25385B;
-    color: #ffffff;
-}
+
 
 .btn-default {
     float: right;
@@ -79,21 +27,6 @@ p {
     width: 360px;
 }
 
-.form-cadastro {
-    width: 100%;
-}
-
-.sem-padding {
-    padding-left: 0;
-}
-
-.observacao-usuarios {
-    font-size: 11px;
-    margin:0px 10px 20px;
-    text-align: right;
-    float: right;
-    color:#939598;
-}
 
 .icone-tooltip {
     font-size: 11px;
@@ -112,10 +45,7 @@ h4 {
     margin-bottom: 15px;
 }
 
-.navbar-inverse {
-    background-color: #25385B;
-    
-}
+
 
 .box-infos-login {
     float: left;
@@ -135,6 +65,3 @@ h4 {
     text-align: center;
 }
 
-.checkbox-memorizar input[type="checkbox"] {
-    margin-top: 5px;
-}

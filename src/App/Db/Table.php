@@ -59,11 +59,11 @@ abstract class Table {
      * @return mixed
      */
     public function save(array $data) {
-    	if (!isset($data['id'])) {
-    		return $this->_insert($data);
-    	} else {
-    		 
-    	}
+        if (!isset($data['id'])) {
+            return $this->_insert($data);
+        } else {
+             
+        }
     }
     /**
      * @param array $data
@@ -77,61 +77,50 @@ abstract class Table {
         }
     }
     
-    /**
-     * @return array
-     */
-    public function fetchAllalunoEvento($id) {
-    	$stmt = $this->db->prepare("select * from alunoEvento where id = :id
-    
-    			;
-    			");
-    	$stmt->bindParam(":id", $id);
-    	$stmt->execute();
-    	return $stmt->fetchAll();
-    }
+   
 
 
     /**
      * @return array
      */
     public function fetchAllParticipante (array $data) {
-    	$stmt = $this->db->prepare("select * from  alunoEvento
-									inner join evento 
-									on alunoEvento.cod_evento = evento.cod_evento
-									inner join usuarios
-									on alunoEvento.id = usuarios.id where ano = :ano and curso = :curso");
-    	$stmt->bindParam(":curso", $data['curso']);
-    	$stmt->bindParam(":ano", $data['ano']);
-    	$stmt->execute();
-    	return $stmt->fetchAll();
+        $stmt = $this->db->prepare("select * from  alunoEvento
+                                    inner join evento 
+                                    on alunoEvento.cod_evento = evento.cod_evento
+                                    inner join usuarios
+                                    on alunoEvento.id = usuarios.id where ano = :ano and curso = :curso");
+        $stmt->bindParam(":curso", $data['curso']);
+        $stmt->bindParam(":ano", $data['ano']);
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
     
     /**
      * @return array
      */
     public function a ($id) {
-    	$stmt = $this->db->prepare("select * from  alunoEvento
-									inner join evento 
-									on alunoEvento.cod_evento = evento.cod_evento
-									inner join usuarios
-									on alunoEvento.id = usuarios.id where usuarios.id = :id");
-    	$stmt->bindParam(":id", $id);
-    	$stmt->execute();
-    	return $stmt->fetchAll();
+        $stmt = $this->db->prepare("select * from  alunoEvento
+                                    inner join evento 
+                                    on alunoEvento.cod_evento = evento.cod_evento
+                                    inner join usuarios
+                                    on alunoEvento.id = usuarios.id where usuarios.id = :id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
     
     /**
      * @return array
      */
-    public function ab ($id) {
-    	$stmt = $this->db->prepare("select * from  alunoEvento
-									inner join evento
-									on alunoEvento.cod_evento = evento.cod_evento
-									inner join usuarios
-									on alunoEvento.id = usuarios.id where alunoEvento.cod_aln_evt = :id");
-    	$stmt->bindParam(":id", $id);
-    	$stmt->execute();
-    	return $stmt->fetchAll();
+    public function fetchAllalunoEvento ($id) {
+        $stmt = $this->db->prepare("select * from  alunoEvento
+                                    inner join evento
+                                    on alunoEvento.cod_evento = evento.cod_evento
+                                    inner join usuarios
+                                    on alunoEvento.id = usuarios.id where alunoEvento.cod_aln_evt = :id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
     /**
      * @param $id
@@ -168,9 +157,9 @@ abstract class Table {
      * @return array
      */
     public function fetchAllEvento() {
-    	$stmt = $this->db->prepare("select * from evento");
-    	$stmt->execute();
-    	return $stmt->fetchAll();
+        $stmt = $this->db->prepare("select * from evento");
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 
 }

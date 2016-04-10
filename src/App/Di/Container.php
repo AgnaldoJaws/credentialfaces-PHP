@@ -12,7 +12,7 @@ class Container {
      * @return \PDO
      */
     private static function getDb() {
-        $db = new \PDO("mysql:host=localhost;dbname=credentialfaces", "root", "ab45yc;;");
+        $db = new \PDO("mysql:host=localhost;dbname=credentialfaces", "root", "abc");
         $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         return $db;
     }

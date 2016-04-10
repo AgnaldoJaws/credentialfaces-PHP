@@ -4,11 +4,11 @@ namespace App\Controllers;
 
 use App\Di\Container;
 
-use App\Fpdf\FPDF;
 
 
+include("../vendor/mpdf/mpdf/mpdf.php");
 
-require 'fpdf.php';
+
 
 /**
  * Class Artigos
@@ -24,52 +24,61 @@ class Eventos extends Action
     
     
     use Crud;
-    
-    public function listaParticipantesPdf (){
-    	
-    	
-    	
-    	if (!isset($_SESSION)) session_start();
+
+    public function listaParticipantesPdf ()
+{
+	if (!isset($_SESSION)) session_start();    	 
+    	if (!isset($_SESSION['id'])) {    		 
+    		session_destroy();		 
     	 
-    	if (!isset($_SESSION['id'])) {
-    		 
-    		session_destroy();
-    		 
-    		 
     	}
-    	$model = Container::getClass($this->model);
-    	$a = $this->view->objetos = $model->fetchAllParticipante($_POST);
+
+    	$model = Container::getClass($this->model);        
+    	$participantes = $model->fetchAllParticipante($_POST);
+        
+        $mpdf=new \mPDF(); 
+        $mpdf->SetDisplayMode('fullpage');
+        $mpdf->AddPage('L','A4');
+
+                
+       $html .= '
+        <h3> Lista de participantes do evento Sintec 2016 </h3>
+        <table border="1" style="width:100%">
+       <tr>
+        <th>Nome</th>
+        <th>RA</th>
+        <th>Valor</th>
+        <th>Data</th>
+        <th>Combo</th>
+        <th>Pagamento</th>
+        </tr>';
+         foreach($participantes as $participante):
+
+
+             $html .= '
+         <tr>
+         
+                <td>'.$participante['nome_aluno'].'</td>
+                <td>'.$participante['ra'].'</td>
+                <td>'.$participante['valor'].'</td>
+                 <td>'.$participante['data'].'</td>
+                   <td>'.$participante['data'].'</td>
+               
+                <td></td>
+
+            </tr>';
+        endforeach;
+        $html .= '</table>';   
+                    
+         
+       
+
+ 
+    	$mpdf->WriteHTML($html);
     	
-    	$pdf = new FPDF();
-    	$pdf->AddPage('L','A4');
-    	$pdf->SetFont('Arial','',15);
-    
-    	$pdf->Ln(10);
-    	$pdf->Cell(70, 6, 'Nome',1);
-    	$pdf->Cell(30, 6, 'RA',1);
-    	$pdf->Cell(30, 6, 'Valor',1);
-    	$pdf->Cell(30, 6, 'Data',1);
-    	$pdf->Cell(30, 6, 'Pagamento',1);
-    	$pdf->Cell(30, 6, 'Celo',1);
-    	$pdf->Cell(30, 6, 'Carimbo',1);
-		foreach ($a as $ab) {
-			
-			
-			$pdf->Ln(6);
-			
-			$pdf->Cell(70, 6, $ab['nome_aluno'],1);
-			$pdf->Cell(30, 6, $ab['ra'],1);		
-			$pdf->Cell(30, 6, $ab['valor'],1);
-			$pdf->Cell(30, 6, $ab['data'],1);
-			$pdf->Cell(30, 6, '',1);
-			$pdf->Cell(30, 6, '',1);
-			$pdf->Cell(30, 6, '',1);
-		
-			
-		}
-    	 
     	
-		$pdf->Output();
+    	$mpdf->Output(); 	
+    	
     	
     }
     
@@ -85,24 +94,23 @@ class Eventos extends Action
     	
     	$this->render('listaParticipantes');
     }
-    public function index (){
-    	
-    if (!isset($_SESSION)) session_start();
-		
-			if (!isset($_SESSION['id'])) {
-		
-				session_destroy();
-		
-				
+
+    public function index()
+ {    	
+    if (!isset($_SESSION)) session_start();		
+			if (!isset($_SESSION['id'])) {		
+				session_destroy();			
 			}
+
 			$model = Container::getClass($this->model);
 			$this->view->objetos = $model->fetchAll();
 			$this->render("index");
 		
-    }
+}
 
     public function novo()
     {
+        
         if (!isset($_SESSION)) session_start();
         if (!isset($_SESSION['id'])) {
             session_destroy();
@@ -110,6 +118,7 @@ class Eventos extends Action
         }
 
         if(count($_POST)) {
+
             $model = Container::getClass($this->model);
             $model->save($_POST);
             $this->view->sucesso = true;
