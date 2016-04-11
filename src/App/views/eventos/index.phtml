@@ -4,14 +4,7 @@
     color: #ffffff;
     margin-top: -30px;
     
-}
-
-
-    #eventContent {
-      
-    
-        
-    }
+}    
     @media screen and (min-width: 1px) and (max-width: 755px) { 
 
 #eventContent {
@@ -24,20 +17,12 @@
     #eventContent h3 {
         text-align: center;
     }
-            #teste {
-        width: 900px; 
-        margin-top: -292px;
-        height: 292px;
-        margin-left: -2px;
-         background-color: #410f70;
-    }
+            
     }
 </style>           
 
 
-<div id="teste">    
 
-</div>
 
 <div class="content col-md-9" id="eventContent">
     <h3>Eventos</h3> <br>
@@ -66,32 +51,18 @@
 
     <table class="table table-bordered table-hover">
     <thead>
-    <tr>
-        <th>Curso</th>
-        <th>Nome Evento</th>
-        <th>Convidado</th>
-        <th>Assunto</th>
-        <th>Local</th>
-        <th>Data</th>
-        <th>Horário de Início</th>
-        <th>Horário de Término</th>
-        <th>Carga Horária</th>
+    <tr>       
+        <th>Nome Evento</th>       
+        <th>Data</th>        
         <th>Valor</th>
         <th width="10%" align="center">Ação</th>
     </tr>
     </thead>
     <tbody>
     <?php foreach ($this->view->objetos as $registro): ?>
-        <tr>
-            <td align="left"><?= $registro['curso']; ?></td>
-            <td align="left"><?= $registro['nome_evento']; ?></td>
-             <td align="left"><?= $registro['palestrante']; ?></td>
-            <td align="left"><?= $registro['assunto']; ?></td>
-             <td align="left"><?= $registro['local']; ?></td>
-            <td align="left"><?= $registro['data']; ?></td>
-             <td align="left"><?= $registro['horario_inicio']; ?></td>
-            <td align="left"><?= $registro['horario_termino']; ?></td>
-             <td align="left"><?= $registro['carga_horaria']; ?></td>
+        <tr>            
+            <td align="left"><?= $registro['nome_evento']; ?></td>             
+            <td align="left"><?= $registro['data']; ?></td>             
             <td align="left"><?= $registro['valor']; ?></td>
             
             <td>
