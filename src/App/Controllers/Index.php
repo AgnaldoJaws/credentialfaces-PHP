@@ -170,7 +170,7 @@ p.sub-titulo{
  				$_SESSION['id'] = $confirmaLogin['fetch']['id'];
  				$_SESSION['nome'] = $confirmaLogin['fetch']['nome'];
  	
- 				$nome = 'agnaldobernardojunior@yahoo.com.br';
+ 				$nome = 'coordenadorcf@gmail.com';
  				if ($_POST['email'] == $nome){
  				header('location:/dashboard-Admin');
  				} else {
