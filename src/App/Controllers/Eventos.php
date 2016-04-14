@@ -60,7 +60,7 @@ class Eventos extends Action
          
                 <td>'.$participante['nome_aluno'].'</td>
                 <td>'.$participante['ra'].'</td>
-                <td>'.$participante['valor'].'</td>
+                <td><p>R$</p>'.$participante['valor'].'</td>
                  <td>'.$participante['data'].'</td>
                    <td>'.$participante['data'].'</td>
                

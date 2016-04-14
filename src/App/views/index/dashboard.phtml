@@ -15,9 +15,11 @@
   <option value="0" selected="selected"> Evento</option>
    <?php foreach ($this->view->objetos as $registro): ?>      
             <?php  $evento = $registro["nome_evento"];?>
+            <?php  $combo = $registro["combo"];?>
+            <?php  $valor = $registro["valor"];?>
            <?php  $cod = $registro["cod_evento"];?>
         
-      <option value= "<?php echo $cod ?>" > <?php echo  $evento ?></option>
+      <option value= "<?php echo $cod ?>" > <?php echo  $evento?>   COMBO:<?php echo  $combo?>  R$ <?php echo  $valor?></option>
         <?php endforeach;?>
         
     </select>   

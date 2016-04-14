@@ -70,7 +70,7 @@ class Index extends Action
             $convidado  = $dadoCertificado['palestrante'];        
         }    
     
-        $img = 'http://www.onthebass.com.br/belavista/oquefazemos/sistema-agroflorestal-min.png';
+        
      
    //Criamos o corpo do certificado em html        
     $html .=     "<style>
@@ -124,14 +124,14 @@ p.sub-titulo{
 
         <div class='img2'>
         
-        <img class = 'logo1' src='http://www.onthebass.com.br/belavista/oquefazemos/sistema-agroflorestal-min.png'/>
+        <img class = 'logo1' src='http://www.onthebass.com.br/cf/logocf.png'/>
         </div>
 
         <div class='conteudo'>
          
         <h1>Certificado</h1>
         <h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Certificamos que o aluno (a) " .$nome. " portador do RA ".$ra. "
-        paticipou do evento ".$evento.", com o (s) tema (s) ".$tema. ", ministrado pelo (s) convidado (s) ".$convidado. ", promovido pelo curso de ".$curso. " com carga horária de " .$hora." na Faculdade Unisepe na
+        paticipou do evento ".$evento.", com o (s) tema (s) ".$tema. ", ministrado pelo (s) convidado (s) ".$convidado. ", promovido pelo curso de ".$curso. " com carga horária de " .$hora. " horas, na Faculdade Unisepe na
         data de " .$data.".<h3>
         
         <h3 class='Coordenador'>Coordenador</h3>
@@ -204,5 +204,16 @@ p.sub-titulo{
  		$this->view->objetos = $modelMo->fetchAllEvento();
  		$this->render("dashboard");
  	}
+
+     /**
+     * Método / Action de Logout
+     */
+    public function logout()
+    {
+        session_start();
+        session_destroy();
+        header("Location:/"); exit;
+
+    }
  	
 }

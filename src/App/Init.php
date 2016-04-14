@@ -41,6 +41,8 @@ class Init extends Bootstrap
         
         $ar['participantes'] = ['route' => '/participantes', 'controller' => 'eventos', 'action' => 'listaParticipantes'];
         
+         $ar['logout'] = ['route' => '/logout', 'controller' => 'index', 'action' => 'logout'];
+        
         $ar['listaParticipantes'] = ['route' => '/Evento/lista-paticipantes', 'controller' => 'eventos', 'action' => 'listaParticipantesPdf'];
                    $this->setRoutes($ar);
     }

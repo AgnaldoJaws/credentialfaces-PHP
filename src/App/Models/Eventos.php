@@ -23,15 +23,16 @@ class Eventos extends Table {
     protected function _insert(array $data) {
         $stmt = $this->db->prepare(
             "INSERT INTO ".$this->getTable().
-            "(curso,nome_evento, palestrante, assunto,
+            "(curso, combo, nome_evento, palestrante, assunto,
         		local, data, ano,horario_inicio, horario_termino,
-        		carga_horaria, valor) VALUES(:curso, :nome_evento, :palestrante, :assunto,
+        		carga_horaria, valor) VALUES(:curso, :combo, :nome_evento, :palestrante, :assunto,
         		:local, :data, :ano, :horario_inicio, :horario_termino,
         		:carga_horaria, :valor)"
         );
        
         $stmt->bindParam(":curso", $data['curso']);
         $stmt->bindParam(":nome_evento", $data['nome_evento']);
+        $stmt->bindParam(":combo", $data['combo']);
         $stmt->bindParam(":palestrante", $data['palestrante']);
         $stmt->bindParam(":assunto", $data['assunto']);
         $stmt->bindParam(":local", $data['local']);
