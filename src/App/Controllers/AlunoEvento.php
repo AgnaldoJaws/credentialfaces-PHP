@@ -32,11 +32,11 @@ class alunoEvento extends Action
         	$model = Container::getClass($this->model);
             $model->saveAlunoEvento($_POST);            
             $this->view->sucesso = true; 
-            
+            header("Location:/dashboard");
             
           }
         
-          header("Location:/dashboard");
+          
        
         
     }

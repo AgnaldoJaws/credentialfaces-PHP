@@ -42,7 +42,14 @@ class Eventos extends Action
 
                 
        $html .= '
-        <h3> Lista de participantes do evento Sintec 2016 </h3>
+        <h3> Lista de participantes do evento';
+             foreach($participantes as $participante):
+                
+                endforeach; 
+        $html .='
+
+
+         </h3>
         <table border="1" style="width:100%">
        <tr>
         <th>Nome</th>
@@ -62,7 +69,7 @@ class Eventos extends Action
                 <td>'.$participante['ra'].'</td>
                 <td><p>R$</p>'.$participante['valor'].'</td>
                  <td>'.$participante['data'].'</td>
-                   <td>'.$participante['data'].'</td>
+                   <td>'.$participante['combo'].'</td>
                
                 <td></td>
 

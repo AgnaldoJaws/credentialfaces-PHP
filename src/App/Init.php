@@ -18,9 +18,15 @@ class Init extends Bootstrap
     {
         $ar['home'] = ['route' => '/', 'controller' => 'index', 'action' => 'index'];
         $ar['cadastro'] = ['route' => '/usuario/cadastro', 'controller' => 'usuario', 'action' => 'cadastro'];
+
         $ar['cadastro-confirmacao'] = ['route' => '/usuario/confirmacao', 'controller' => 'usuario', 'action' => 'confirmacao'];
+
         $ar['ativacao'] = ['route' => '/assinante/ativacao', 'controller' => 'usuario', 'action' => 'ativacao'];
+
+        $ar['lista-evento-aluno'] = ['route' => '/lista-evento', 'controller' => 'index', 'action' => 'listaEventoAluno'];
+
         $ar['dashboard'] = ['route' => '/dashboard', 'controller' => 'index', 'action' => 'dashboard'];
+
         $ar['dashboard-admin'] = ['route' => '/dashboard-Admin', 'controller' => 'admin', 'action' => 'dashboard'];
         
         $ar['esqueceu-senha'] = ['route' => '/usuario/esqueceu', 'controller' => 'usuario', 'action' => 'esqueceu'];

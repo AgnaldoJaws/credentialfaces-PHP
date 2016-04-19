@@ -188,7 +188,7 @@ p.sub-titulo{
  		$this->render("index");
  	}
  	
- 	public function dashboard()
+ 	public function listaEventoAluno()
  	{
  			
  		if (!isset($_SESSION)) session_start();
@@ -202,8 +202,23 @@ p.sub-titulo{
  		$modelMo = Container::getClass($this->modelEvento);
  		//$this->view->objetos = $modelMo->fetchAEvento();
  		$this->view->objetos = $modelMo->fetchAllEvento();
- 		$this->render("dashboard");
+ 		$this->render("lista-evento-aluno");
  	}
+
+    public function dashboard()
+    {
+            
+        if (!isset($_SESSION)) session_start();
+    
+        if (!isset($_SESSION['id'])) {
+    
+            session_destroy();
+    
+            header("Location:/"); exit;
+        }
+        
+        $this->render("dashboard");
+    }
 
      /**
      * Método / Action de Logout
